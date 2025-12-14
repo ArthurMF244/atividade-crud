@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load django_bootstrap5 %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmar Exclusão</title>
+    {% bootstrap_css %}
+</head>
+<body>
+
+<div class="container mt-5">
+
+    <div class="card shadow-sm p-4">
+        <h3 class="mb-3 text-danger">Confirmar Exclusão</h3>
+
+        <p>
+            Deseja realmente remover o funcionário
+            <strong>{{ object.nome }}</strong>?
+        </p>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <button type="submit" class="btn btn-danger">
+                Confirmar
+            </button>
+
+            <a href="{% url 'lista_funcionarios' %}" class="btn btn-secondary">
+                Cancelar
+            </a>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>
